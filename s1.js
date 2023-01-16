@@ -569,7 +569,6 @@ console.log("lecture", solution(str));
 첫 줄에 중복문자가 제거된 문자열을 출력합니다.
 ▣ 입력예제 1 ksekkset
 ▣ 출력예제 1 kset
-*/
 
 const mySolution = (s) => {
   return Array.from(new Set(s)).join("");
@@ -586,5 +585,49 @@ const solution = (s) => {
 };
 
 let str = "ksekkset";
+console.log("me", mySolution(str));
+console.log("lecture", solution(str));
+
+문제17) 중복 단어 제거
+N개의 문자열이 입력되면 중복된 문자열은 제거하고 출력하는 프로그램을 작성하세요. 출력하는 문자열은 원래의 입력순서를 유지합니다.
+▣ 입력설명
+첫 줄에 자연수 N이 주어진다.(3<=N<=30)
+두 번째 줄부터 N개의 문자열이 주어진다. 문자열의 길이는 100을 넘지 않습니다.
+▣ 출력설명
+첫 줄부터 중복이 제거된 문자열을 차례로 출력한다.
+▣ 입력예제 1 
+5
+good
+time
+good 
+time 
+student
+▣ 출력예제 1 
+good
+time
+student
+*/
+
+const mySolution = (s) => {
+  // const result = [];
+  // for (let i = 0; i < s.length; i++) {
+  //   if (s.indexOf(s[i]) === i) result.push(s[i]);
+  // }
+  // return result;
+
+  return Array.from(new Set(s));
+};
+
+const solution = (s) => {
+  let answer = "";
+
+  answer = s.filter((v, i) => {
+    if (s.indexOf(v) === i) return true;
+  });
+
+  return answer;
+};
+
+let str = ["good", "time", "good", "time", "student"];
 console.log("me", mySolution(str));
 console.log("lecture", solution(str));
