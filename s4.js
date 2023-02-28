@@ -173,8 +173,8 @@ const solution = (test) => {
   m = test.length;
   n = test[0].length;
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n; j++) {
       let cnt = 0;
 
       for (let k = 0; k < m; k++) {
@@ -192,7 +192,6 @@ const solution = (test) => {
     }
   }
 
-  console.log(answer);
   return answer;
 };
 
