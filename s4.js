@@ -162,38 +162,64 @@ M번의 수학성적이 주어지면 멘토와 멘티가 되는 짝을 만들 �
 첫 번째 줄에 짝을 만들 수 있는 총 경우를 출력합니다.
 */
 
-// const mySolution = (arr) => {
-//   let result = 0;
-//   return result;
-// };
+const mySolution = (arr) => {
+  let result = 0;
+  const group = [];
 
-const solution = (test) => {
-  let answer = 0;
-
-  m = test.length;
-  n = test[0].length;
-
-  for (let i = 1; i <= n; i++) {
-    for (let j = 1; j <= n; j++) {
+  for (let i = 1; i <= arr[0].length; i++) {
+    for (let j = 1; j <= arr[0].length; j++) {
       let cnt = 0;
 
-      for (let k = 0; k < m; k++) {
-        let pi = 0;
-        let pj = 0;
+      for (let k = 0; k < arr.length; k++) {
+        let x = 0;
+        let y = 0;
 
-        for (let s = 0; s < n; s++) {
-          if (test[k][s] === i) pi = s;
-          if (test[k][s] === j) pj = s;
+        for (let s = 0; s < arr[0].length; s++) {
+          if (arr[k][s] === i) x = s;
+          if (arr[k][s] === j) y = s;
         }
 
-        if (pi < pj) cnt++;
+        if (x < y) cnt++;
       }
-      if (cnt === m) answer++;
+
+      if (cnt === arr.length) {
+        result++;
+        group.push([i, j]);
+      }
     }
   }
 
-  return answer;
+  console.log(group);
+  return result;
 };
+
+// const solution = (test) => {
+//   let answer = 0;
+
+//   m = test.length;
+//   n = test[0].length;
+
+//   for (let i = 1; i <= n; i++) {
+//     for (let j = 1; j <= n; j++) {
+//       let cnt = 0;
+
+//       for (let k = 0; k < m; k++) {
+//         let pi = 0;
+//         let pj = 0;
+
+//         for (let s = 0; s < n; s++) {
+//           if (test[k][s] === i) pi = s;
+//           if (test[k][s] === j) pj = s;
+//         }
+
+//         if (pi < pj) cnt++;
+//       }
+//       if (cnt === m) answer++;
+//     }
+//   }
+
+//   return answer;
+// };
 
 let arr = [
   [3, 4, 1, 2],
@@ -201,8 +227,8 @@ let arr = [
   [3, 1, 4, 2],
 ];
 
-// console.log("me", mySolution(arr));
-console.log("lecture", solution(arr));
+console.log("me", mySolution(arr));
+// console.log("lecture", solution(arr));
 
 // 문제4)
 // 문제5)
